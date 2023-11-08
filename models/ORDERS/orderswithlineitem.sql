@@ -8,7 +8,7 @@ from {{ ref('ORDERS') }}
 CUST AS
 (
 select *
-from {{ ref('CUST') }}
+from {{ ref('cust') }}
 ),
 
 LI AS
