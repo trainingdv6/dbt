@@ -1,3 +1,6 @@
+
+{{ config(materialized='table') }}
+
 WITH AGG AS
 (
 SELECT 
