@@ -40,3 +40,24 @@ models:
     # Applies to all files under models/example/
     example:
       +materialized: table
+    staging:
+      +materialized: view
+      +tags: ["staging"]
+    intermediate:
+      +materialized: view
+      +tags: ["intermediate"]
+    marts:
+      +materialized: table
+      +tags: ["marts"]
+
+seeds:
+  my_analytics_project:
+    market_segments:
+      +column_types:
+        segment_code: varchar(20)
+        segment_name: varchar(50)
+        segment_description: varchar(200)
+        
+vars:
+  start_date: '2022-01-01'
+  end_date: '2023-12-31'

@@ -1,0 +1,6 @@
+segment_code,segment_name,segment_description
+AUTOMOBILE,Automobile,Automotive industry customers
+BUILDING,Building,Construction industry customers
+FURNITURE,Furniture,Furniture industry customers
+HOUSEHOLD,Household,Household goods customers
+MACHINERY,Machinery,Industrial machinery customers
