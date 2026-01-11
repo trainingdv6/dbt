@@ -1,0 +1,43 @@
+version:  2
+
+sources:
+  - name: tpch
+    description: TPC-H sample dataset from Snowflake
+    database: snowflake_sample_data
+    schema: tpch_sf1
+    tables:
+      - name: customer
+        description: Customer information
+        columns:
+          - name: c_custkey
+            description: Customer key (Primary Key)
+            tests:
+              - unique
+              - not_null
+          - name: c_name
+            description: Customer name
+          - name: c_nationkey
+            description: Nation key reference
+      
+      - name: orders
+        description: Order information
+        columns:
+          - name: o_orderkey
+            description: Order key (Primary Key)
+            tests:
+              - unique
+              - not_null
+          - name: o_custkey
+            description: Customer key (Foreign Key)
+            tests:
+              - not_null
+      
+      - name: lineitem
+        description: Line item details
+        columns:
+          - name: l_orderkey
+            description: Order key (Foreign Key)
+            tests:
+              - not_null
+          - name: l_linenumber
+            description: Line number within order

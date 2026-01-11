@@ -1,0 +1,34 @@
+models:
+  - name: dim_customers
+    description: Customer dimension table
+    columns:
+      - name: customer_key
+        description: Primary key
+        tests:
+          - unique
+          - not_null
+      - name: customer_tier
+        description: Customer tier classification
+        tests:
+          - accepted_values:
+              values: ['Bronze', 'Silver', 'Gold', 'VIP']
+      - name: total_spent
+        description: Total amount spent by customer
+        tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              expression: ">= 0"
+  - name: fact_orders
+    description: Order fact table
+    columns:
+      - name: order_key
+        description: Primary key
+        tests:
+          - unique
+          - not_null
+      - name: total_amount
+        description: Total order amount
+        tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              expression: "> 0"
